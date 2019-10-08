@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//components
+import TopBar from './mainPage/topBar'
 
-export default App;
+
+
+export default class App extends React.Component {
+
+  constructor(props) {
+    this.state = {
+      currentPage:'home',
+      sidebarEnabled:'false'
+    }
+    this.setPage = this.setPage.bind(this);
+  }
+
+  setPage(target) {
+    this.setState({currentPage:target})
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <TopBar changePage={this.state.setPage} currentPage={this.state.currentPage} />
+      </div>
+    );
+  }
+
+}
