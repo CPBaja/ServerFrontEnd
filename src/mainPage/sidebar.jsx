@@ -1,45 +1,41 @@
 import React from 'react';
-import { Input, Label, Menu, Icon } from 'semantic-ui-react'
+import { Label, Menu, Sidebar, Pushable, Segment, Icon } from 'semantic-ui-react'
 
 export default class MainSidebar extends React.Component {
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
+  handleItemClick = (e, { name }) => this.props.setPage(name)
+
 
   render() {
     const { activeItem } = this.props.currentPage
     return (
-      <Menu vertical>
-          <Menu.Item
-            name='inbox'
-            active={activeItem === 'inbox'}
-            onClick={this.handleItemClick}
-          >
-            <Label color='teal'>1</Label>
-            Inbox
+      <Sidebar.Pushable as={Segment}>
+        <Sidebar
+          as={Menu}
+          animation='overlay'
+          icon='labeled'
+          inverted
+          onHide={this.props.click}
+          vertical
+          visible={this.props.visibility}
+          width='thin'
+        >
+          <Menu.Item as='a'>
+            <Icon name='home' />
+            Home
           </Menu.Item>
+          <Menu.Item as='a'>
+            <Icon name='gamepad' />
+            Games
+          </Menu.Item>
+          <Menu.Item as='a'>
+            <Icon name='camera' />
+            Channels
+          </Menu.Item>
+        </Sidebar>
 
-          <Menu.Item
-            name='spam'
-            active={activeItem === 'spam'}
-            onClick={this.handleItemClick}
-          >
-            <Label>51</Label>
-            Spam
-          </Menu.Item>
 
-          <Menu.Item
-            name='updates'
-            active={activeItem === 'updates'}
-            onClick={this.handleItemClick}
-          >
-            <Label>1</Label>
-            Updates
-          </Menu.Item>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search mail...' />
-          </Menu.Item>
-        </Menu>
-      )
+      </Sidebar.Pushable>
+    )
   }
 }

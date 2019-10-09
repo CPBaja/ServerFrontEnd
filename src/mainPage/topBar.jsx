@@ -1,28 +1,33 @@
 import React, { Component } from 'react'
-import { Input, Menu, Icon } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 
 export default class MenuExampleSecondary extends Component {
-  state = { activeItem: 'home' }
+  constructor(props) {
+    super(props);
+    this.state = { sideMenuVisible: 'true' }
+  }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-  
+
+
+
   render() {
-    const { activeItem } = this.state
+    const { activeItem } = this.props.currentPage
 
     return (
-      <Menu secondary>
+      <Menu>
         <Menu.Item>
-          <Icon name='bars' onClick={handleBarClick}/>
+          <Icon link name='bars' onClick={this.props.handleHamburgerClick}/>
         </Menu.Item>
         <Menu.Item
           name='home'
           active={activeItem === 'home'}
-          onClick={this.handleItemClick}
+          onClick={this.props.setPage}
         />
+
         <Menu.Item
           name='Vehicle Status'
           active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
+          onClick={this.props.setPage}
         />
 
         <Menu.Menu position='right'>
