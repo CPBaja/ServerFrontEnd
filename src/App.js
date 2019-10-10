@@ -13,7 +13,7 @@ export default class App extends React.Component {
     this.state = {
       currentPage:'home',
       sidebarEnabled:false,
-      sideMenuVisible: 'false',
+      sideMenuVisible: true,
       currentProfile: 'General'
     }
   }
@@ -24,12 +24,9 @@ export default class App extends React.Component {
   }
 
   handleHamburgerClick = () => {
-    if (this.state.sideMenuVisible==='true') {
-      this.setState({ sideMenuVisible : 'false'})
-    } else {
-      this.setState({ sideMenuVisible : 'true'})
-    }
-    console.log(this.state.sideMenuVisible)
+    var currentMenu = this.state.sideMenuVisible
+    console.log(!currentMenu)
+    this.setState({sideMenuVisible : !currentMenu})
   }
 
   render() {
