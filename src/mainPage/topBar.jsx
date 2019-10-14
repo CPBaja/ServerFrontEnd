@@ -7,12 +7,9 @@ export default class MenuExampleSecondary extends Component {
     this.state = { sideMenuVisible: 'true' }
   }
 
-
-
-
   render() {
     const { activeItem } = this.props.currentPage
-
+    console.log(activeItem)
     return (
       <Menu>
         <Menu.Item>
