@@ -8,13 +8,13 @@ export default class MenuExampleSecondary extends Component {
   }
 
   render() {
-    const { activeItem } = this.props.currentPage
+    const activeItem = this.props.currentPage
+
     console.log(activeItem)
+
     return (
       <Menu>
-        <Menu.Item>
-          <Icon link name='bars' onClick={this.props.handleHamburgerClick}/>
-        </Menu.Item>
+
         <Menu.Item
           name='home'
           active={activeItem === 'home'}
@@ -22,19 +22,10 @@ export default class MenuExampleSecondary extends Component {
         />
 
         <Menu.Item
-          name='Vehicle Status'
-          active={activeItem === 'messages'}
+          name='sensorPage'
+          active={activeItem === 'sensorPage'}
           onClick={this.props.setPage}
         />
-
-        <Menu.Menu position='right'>
-
-          <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
-          />
-        </Menu.Menu>
       </Menu>
     )
   }

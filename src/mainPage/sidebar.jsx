@@ -2,7 +2,7 @@ import React from 'react';
 import { Header, Icon, Image, Menu, Segment, Sidebar, Dropdown } from 'semantic-ui-react'
 
 import Content from './cards'
-
+import StatusTable from '../vehicleStatus/statusTable'
 const fakeOptions = [
   {
     key: 'Map',
@@ -58,8 +58,8 @@ export default class MainSidebar extends React.Component {
 
         <Sidebar.Pusher>
           <Segment basic>
-            <Header as='h3'>Application Content</Header>
-            <Content />
+            
+            <StatusTable />
           </Segment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>

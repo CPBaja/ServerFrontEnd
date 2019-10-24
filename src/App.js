@@ -3,8 +3,10 @@ import './App.css';
 
 //components
 import TopBar from './mainPage/topBar'
-import MainSidebar from './mainPage/sidebar'
+//import MainSidebar from './mainPage/sidebar'
 
+import Content from './mainPage/content'
+import StatusTable from './vehicleStatus/statusTable'
 
 export default class App extends React.Component {
 
@@ -30,13 +32,28 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <TopBar setPage={this.setPage} currentPage={this.state.currentPage}
-          handleHamburgerClick={this.handleHamburgerClick}/>
-        <MainSidebar click={this.handleHamburgerClick} visibility={this.state.sideMenuVisible} currentPage={this.state.currentPage}/>
-      </div>
-    );
+
+    if (this.state.currentPage=='home') {
+      console.log('shit')
+      return(
+
+        <div className="App">
+          <TopBar setPage={this.setPage} currentPage={this.state.currentPage}
+            handleHamburgerClick={this.handleHamburgerClick}/>
+          <Content />
+        </div>
+      )
+    }
+    if (this.state.currentPage=='sensorPage') {
+      console.log('fuck')
+      return (
+        <div className="App">
+          <TopBar setPage={this.setPage} currentPage={this.state.currentPage}
+            handleHamburgerClick={this.handleHamburgerClick}/>
+          <StatusTable />
+        </div>
+      )
+    }
   }
 
 }
