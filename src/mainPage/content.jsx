@@ -10,6 +10,7 @@ const graphStyle = {
 
 const timelineStyle = {
     position: 'absolute',
+    left: 0,
     bottom: 0,
     width: '100%',
     height: '100px'
@@ -21,7 +22,6 @@ class Graph extends React.Component{
         super(props);
         this.state = {
             timeRange: [0,1]
-
         };
     }
 
