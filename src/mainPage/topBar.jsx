@@ -9,9 +9,6 @@ export default class MenuExampleSecondary extends Component {
 
   render() {
     const activeItem = this.props.currentPage
-
-    console.log(activeItem)
-
     return (
       <Menu>
 
@@ -19,12 +16,14 @@ export default class MenuExampleSecondary extends Component {
           name='home'
           active={activeItem === 'home'}
           onClick={this.props.setPage}
+          href="/sensors"
         />
 
         <Menu.Item
           name='sensorPage'
           active={activeItem === 'sensorPage'}
           onClick={this.props.setPage}
+          href="/status"
         />
       </Menu>
     )

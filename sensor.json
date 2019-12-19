@@ -1,0 +1,5 @@
+{
+  "GPS":true,
+  "Accelerometer":true,
+  "Wheelspeed":true,
+}

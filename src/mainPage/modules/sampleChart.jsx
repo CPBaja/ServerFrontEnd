@@ -2,7 +2,7 @@ import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-export default class SampleChart extends React.Component {
+export default class HighChart extends React.Component {
   render() {
     const options = {
       title: {
@@ -12,7 +12,7 @@ export default class SampleChart extends React.Component {
         data: [1, 2, 3]
       }]
     }
-    
+
     return (
       <HighchartsReact
         highcharts={Highcharts}

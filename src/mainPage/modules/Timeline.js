@@ -219,6 +219,13 @@ export default class Timeline extends React.Component {
         this.setRad(this.radius + (event.deltaY * this.zoomWheelMultiplier * this.radius));
     }
 
+    live() {
+      if (this.props.realtime == true && (this.props.lastime == this.center + this.radius || this.center - this.radius)) {
+        //TODO modify this! @Dominic
+      }
+    }
+
+
     render() {
         return (
             <canvas style={this.props.style}>

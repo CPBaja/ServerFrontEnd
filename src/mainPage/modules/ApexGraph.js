@@ -1,11 +1,8 @@
 import React from "react";
-import ReactApexCharts from 'react-apexcharts'
+import Chart from 'react-apexcharts'
 import {throttle} from 'lodash'
 
-let data = [];
-for(let i = 0; i < 1000; i++){
-    data.push([i/1000, Math.random() * 10])
-}
+
 
 const GraphStyle = {};
 
@@ -24,7 +21,7 @@ class ApexGraph extends React.Component {
                     }
                 }
             });
-        }, 1/30);
+        }, 1/60);
 
 
         this.state = {
@@ -38,6 +35,7 @@ class ApexGraph extends React.Component {
                     zoom: {
                         enabled: false
                     },
+                    title: this.props.graphTitle
                 },
                 dataLabels: {
                     enabled: false
@@ -46,7 +44,7 @@ class ApexGraph extends React.Component {
                     curve: 'straight'
                 },
                 title: {
-                    text: 'Product Trends by Month',
+                    text: this.props.sensorName,
                     align: 'left'
                 },
                 grid: {
@@ -63,29 +61,23 @@ class ApexGraph extends React.Component {
             },
 
             series: [{
-                name: "Desktops",
-                data: data
+                name: this.props.sensorName,
+                data: this.props.sensorData
             }]
         };
-
-
 
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.timeRange !== this.props.timeRange) {
             this.updateDomain(this.props.timeRange)
-
-            //this.options.xaxis.min = this.props.timeRange[0];
-            //this.options.xaxis.min = this.props.timeRange[1];
-
         }
     }
 
     render() {
         return (
             <div style={this.props.style}>
-                {<ReactApexCharts height='100%' options={this.state.options} series={this.state.series}/>}
+                <Chart height='100%' options={this.state.options} series={this.state.series}/>
             </div>
 
         )
