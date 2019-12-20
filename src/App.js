@@ -23,7 +23,7 @@ var ws;
 
 var data = [];
 var data2 = []
-for(let i = 0; i < 2000; i++){
+for(let i = 0; i < 500; i++){
     data.push([i/100, Math.random() * 10])
     data2.push([i/100, Math.random() * 10])
 }
@@ -38,9 +38,10 @@ export default class App extends React.Component {
       sideMenuVisible: true,
       currentProfile: 'General',
 
-      avaliableSensors: [{key: 'Speed', text: 'Speed', connected: true, detail: 'Measures Current Speed (GPS)'}, {key: 'Accelerometer', text: 'Accelerometer (Y)', detail: "Acclerometer Data in Y direction", connected:false}],
+      avaliableSensors: [{key: 'Speed', text: 'Speed', value: 'Speed', connected: true, detail: 'Measures Current Speed (GPS)'},
+      {key: 'Accelerometer', text: 'Accelerometer (Y)', detail: "Acclerometer Data in Y direction", value: 'Accelerometer (Y)', 'connected':false}],
 
-      timeRange: [0, 1],
+      timeRange: [0, 100],
 
       dropdownValue: '',
 
@@ -79,16 +80,23 @@ export default class App extends React.Component {
   }
 
   dropdownChange = (e, {value}) => {
+    console.log(value)
     this.state.currentSensors.push(value)
     //this.setState({dropdownValue : ''})
 
     //TESTING ONLY!
+    var newArray = this.state.sensorData.concat({'name': value, 'data': data})
+
+    this.setState({sensorData : newArray})
+    //this.state.sensorData.push({'name': value, 'data': data})
+    console.log(this.state.sensorData)
+    /*
     if (value == "Accelerometer") {
       this.state.sensorData.push({'name': value, 'data': data})
     } else {
       this.state.sensorData.push({'name': value, 'data': data2})
     }
-
+    */
   }
 
 

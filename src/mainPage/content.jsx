@@ -32,7 +32,7 @@ class Graph extends React.Component{
     render() {
       const timeRange = this.props.timeRange;
       var charts = []
-
+      console.log(this.props.sensorData)
       for (var i = 0; i < this.props.sensorData.length; i++ ) {
         charts.push(<ApexGraph key={i} timeRange = {this.props.timeRange}
           style = {graphStyle} graphTitle={'yeee'}
