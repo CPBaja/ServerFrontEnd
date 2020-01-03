@@ -83,6 +83,7 @@ export default class Timeline extends React.Component {
         }
         */
         this.props.onTimeframeUpdate([this.timeMin, this.timeMax]);
+
         /* Update vars needed to draw new canvas*/
         this.cwidth = this.canvas.scrollWidth;
         this.cheight = this.canvas.scrollHeight;

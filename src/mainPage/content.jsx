@@ -44,7 +44,7 @@ class Graph extends React.Component{
             <div className="content">
                 <SensorDropdown avaliableSensors={this.props.avaliableSensors} dropdownChange={this.props.dropdownChange} dropdownValue={this.props.dropdownValue}/>
                 <div className="charts">
-                  {charts}
+                  <ApexGraph sensorData={this.props.sensorData} />
                 </div>
                 <Timeline style={timelineStyle} onTimeframeUpdate={this.props.onTimeframeUpdate} lastime={this.props.lastime} realtime={this.props.realtime}/>
             </div>

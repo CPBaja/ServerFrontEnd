@@ -24,8 +24,8 @@ var ws;
 var data = [];
 var data2 = []
 for(let i = 0; i < 500; i++){
-    data.push([i/100, Math.random() * 10])
-    data2.push([i/100, Math.random() * 10])
+    data.push([i/10, Math.random() * 10])
+    data2.push([i/10, Math.random() * 10])
 }
 
 export default class App extends React.Component {

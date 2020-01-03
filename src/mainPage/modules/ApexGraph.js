@@ -57,6 +57,10 @@ class ApexGraph extends React.Component {
                     type: "numeric",
                     min: this.props.timeRange[0],
                     max: this.props.timeRange[1],
+                    tickAmount: 30,
+                },
+                yaxis: {
+
                 }
             },
 
@@ -75,6 +79,12 @@ class ApexGraph extends React.Component {
     }
 
     render() {
+      var charts = []
+      for (var i = 0; i < this.props.sensorData.length; i++ ) {
+        var newArray = this.state.series.concat({name: this.props.sensorData.name, data: this.props.sensorData.data})
+        this.setState({series : newArray})
+        //this.state.(name + 'Options')({colors:[]})
+      }
         return (
             <div style={this.props.style}>
                 <Chart height='100%' options={this.state.options} series={this.state.series}/>
