@@ -82,7 +82,7 @@ export default class Timeline extends React.Component {
             console.log("Timeframe updated, but no listener!")
         }
         */
-        this.props.onTimeframeUpdate([this.timeMin, this.timeMax]);
+        //this.props.onTimeframeUpdate([this.timeMin, this.timeMax]);
 
         /* Update vars needed to draw new canvas*/
         this.cwidth = this.canvas.scrollWidth;

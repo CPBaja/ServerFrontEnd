@@ -6,6 +6,9 @@ import HighChart from "./modules/sampleChart"
 import VictoryGraph from "./modules/victory"
 import NivoGraph from "./modules/nivo"
 
+import ChartViewer from "./modules/fusionchartexample"
+
+
 const graphStyle = {
     width: '100%',
     height: '200px',
@@ -44,9 +47,9 @@ class Graph extends React.Component{
             <div className="content">
                 <SensorDropdown avaliableSensors={this.props.avaliableSensors} dropdownChange={this.props.dropdownChange} dropdownValue={this.props.dropdownValue}/>
                 <div className="charts">
-                  <ApexGraph sensorData={this.props.sensorData} />
+                    <ChartViewer />
                 </div>
-                <Timeline style={timelineStyle} onTimeframeUpdate={this.props.onTimeframeUpdate} lastime={this.props.lastime} realtime={this.props.realtime}/>
+                <Timeline />
             </div>
         );
     }

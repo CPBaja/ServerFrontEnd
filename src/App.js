@@ -34,8 +34,7 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       currentPage:'home',
-      sidebarEnabled:false,
-      sideMenuVisible: true,
+
       currentProfile: 'General',
 
       avaliableSensors: [{key: 'Speed', text: 'Speed', value: 'Speed', connected: true, detail: 'Measures Current Speed (GPS)'},
@@ -65,12 +64,7 @@ export default class App extends React.Component {
     this.setState({currentPage: name})
     console.log(name)
   }
-
-  handleHamburgerClick = () => {
-    var currentMenu = this.state.sideMenuVisible
-    console.log(!currentMenu)
-    this.setState({sideMenuVisible : !currentMenu})
-  }
+ 
 
   onTimeframeUpdate = (newFrame) => {
     //TODO write websocket request
@@ -110,7 +104,7 @@ export default class App extends React.Component {
           handleHamburgerClick={this.handleHamburgerClick}/>
 
         <Switch>
-          <Route path="/sensors">
+          <Route path="/">
             <Content timeRange={this.state.timeRange} onTimeframeUpdate={this.onTimeframeUpdate} realtime={this.state.realtime} lastime={this.state.lastime} avaliableSensors={this.state.avaliableSensors} dropdownChange={this.dropdownChange} dropdownValue={this.state.dropdownValue} sensorData={this.state.sensorData}/>
           </Route>
           <Route path="/status">

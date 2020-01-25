@@ -45,6 +45,11 @@ body {
   margin: 50px;
 }
 
+Timeline {
+  width: 100%
+}
+
+
 .gg-close-r {
     box-sizing: border-box;
     position: relative;
@@ -99,4 +104,8 @@ body {
     border-style: solid;
     transform-origin: bottom left;
     transform: rotate(45deg)
+};
+
+ReactFC {
+  width: 100%
 }
