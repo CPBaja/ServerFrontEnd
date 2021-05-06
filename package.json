@@ -7,7 +7,7 @@
     "deck.gl": "^7.3.9",
     "events": "^3.0.0",
     "fusioncharts": "^3.15.0-sr.1",
-    "highcharts": "^7.2.1",
+    "highcharts": "^9.0.0",
     "highcharts-react-official": "^2.2.2",
     "impetus": "^0.8.8",
     "lodash": "^4.17.15",
